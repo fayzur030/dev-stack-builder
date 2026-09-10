@@ -18,7 +18,7 @@ const Banner = () => {
           <button className='bg-gradient-to-r from-[#f97316] to-[#ec4899] text-white transition-all duration-300  hover:opacity-90 px-6 py-2.5 rounded-lg cursor-pointer text-sm font-semibold'>
             Explore Technologies
           </button>
-          <button className='border border-[#E5E7EB] px-5 py-2.5 rounded-lg cursor-pointer hover:bg-neutral-200 transition-all duration-300  hover:opacity-90 text-sm font-semibold'>
+          <button className='outline outline-[#E5E7EB] px-5 py-2.5 rounded-lg cursor-pointer hover:bg-neutral-200 transition-all duration-300  hover:opacity-90 text-sm font-semibold'>
             Learn More
           </button>
         </div>

@@ -8,3 +8,10 @@
   background-clip: text;
   color: transparent;
 }
+
+.technologies {
+  background: linear-gradient(to right, #ec4899, #db4ba8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
