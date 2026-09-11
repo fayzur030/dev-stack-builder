@@ -2,6 +2,7 @@ import type { Dispatch, SetStateAction } from 'react'
 import type { TechItem } from '../../types/technologies'
 import { RxCross2 } from 'react-icons/rx'
 import { toast } from 'react-toastify'
+import { showInfoToast } from '../../utils/toast'
 
 interface ITechnologyCard {
   addStack: TechItem[]
@@ -13,7 +14,7 @@ const StackCard = ({ addStack, setAddStack }: ITechnologyCard) => {
     const findStackName = addStack.find((stack) => stack.name)
     const removeSingleStack = addStack.filter((stack) => stack.id !== id)
     setAddStack(removeSingleStack)
-    toast.info(`${findStackName?.name} deleted successfully`, {
+    toast.info(`${findStackName?.name} removed successfully`, {
       position: 'bottom-right',
       autoClose: 1000,
       hideProgressBar: false,
@@ -25,17 +26,12 @@ const StackCard = ({ addStack, setAddStack }: ITechnologyCard) => {
     })
   }
   const deleteAllStack = () => {
-    setAddStack([])
-    toast.info(`Delete All Stack successfully`, {
-      position: 'bottom-right',
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: 'light',
-    })
+    if (addStack.length === 0) {
+      showInfoToast('Your stack is already empty')
+    } else {
+      setAddStack([])
+      showInfoToast(`All stacks removed successfully`)
+    }
   }
   return (
     <div className='p-4 md:p-5 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 bg-white sticky top-22'>

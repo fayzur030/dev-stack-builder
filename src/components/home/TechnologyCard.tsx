@@ -1,7 +1,7 @@
 import type { Dispatch, SetStateAction } from 'react'
 import type { TechItem } from '../../types/technologies'
 import { getBadgeColor } from '../common/BadgeColors'
-import { toast } from 'react-toastify'
+import { showSuccessToast } from '../../utils/toast'
 interface ItechnologyCard {
   technology: TechItem
   addStack: TechItem[]
@@ -18,30 +18,12 @@ const TechnologyCard = ({
     const isAlreadyAdded = addStack.some((item) => item.id === technology.id)
 
     if (isAlreadyAdded) {
-      toast.info('Already added to stack', {
-        position: 'bottom-right',
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light',
-      })
+      showSuccessToast('Already added to stack')
+
       return
     }
     setAddStack([...addStack, technology])
-
-    toast.success('Add to stack successfully', {
-      position: 'bottom-right',
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: 'light',
-    })
+    showSuccessToast('Add to stack successfully')
   }
 
   return (
