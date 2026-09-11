@@ -1,15 +1,15 @@
-import { use } from 'react'
+import { use, useState } from 'react'
 import type { TechItem } from '../../types/technologies'
 import TechnologyCard from './TechnologyCard'
 import StackCard from './StackCard'
-
-interface Itechnologies {
+interface ITechnologies {
   technologies: Promise<TechItem[]>
 }
 
-const TechnologyList = ({ technologies }: Itechnologies) => {
+const TechnologyList = ({ technologies }: ITechnologies) => {
   const technologyItem = use(technologies)
-  console.log(technologyItem)
+  const [addStack, setAddStack] = useState<TechItem[]>([])
+
   return (
     <div className='max-w-7xl mx-auto px-4 py-8'>
       <div className='mt-8 mb-4 space-y-2 text-center md:text-start'>
@@ -24,13 +24,18 @@ const TechnologyList = ({ technologies }: Itechnologies) => {
         {/* Technology Cards */}
         <div className='lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
           {technologyItem.map((technology) => (
-            <TechnologyCard key={technology.id} technology={technology} />
+            <TechnologyCard
+              key={technology.id}
+              technology={technology}
+              addStack={addStack}
+              setAddStack={setAddStack}
+            />
           ))}
         </div>
 
         {/* Stack Card */}
         <div className='lg:col-span-3 mt-0 lg:mt-10 '>
-          <StackCard />
+          <StackCard addStack={addStack} setAddStack={setAddStack} />
         </div>
       </div>
     </div>

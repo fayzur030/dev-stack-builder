@@ -1,11 +1,53 @@
+import type { Dispatch, SetStateAction } from 'react'
 import type { TechItem } from '../../types/technologies'
 import { getBadgeColor } from '../common/BadgeColors'
+import { toast } from 'react-toastify'
 interface ItechnologyCard {
   technology: TechItem
+  addStack: TechItem[]
+  setAddStack: Dispatch<SetStateAction<TechItem[]>>
 }
-const TechnologyCard = ({ technology }: ItechnologyCard) => {
+const TechnologyCard = ({
+  technology,
+  addStack,
+  setAddStack,
+}: ItechnologyCard) => {
+  const isAdded = addStack.some((item) => item.id === technology.id)
+
+  const handleAddToStack = () => {
+    const isAlreadyAdded = addStack.some((item) => item.id === technology.id)
+
+    if (isAlreadyAdded) {
+      toast.info('Already added to stack', {
+        position: 'bottom-right',
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      })
+      return
+    }
+    setAddStack([...addStack, technology])
+
+    toast.success('Add to stack successfully', {
+      position: 'bottom-right',
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light',
+    })
+  }
+
   return (
-    <div className='border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 p-4 space-y-3'>
+    <div
+      className={` rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 p-4 space-y-3 ${isAdded ? 'border border-[#F29191]' : 'border border-gray-200'}`}
+    >
       <div className='flex items-center justify-between'>
         <img
           src={technology.icon}
@@ -46,8 +88,11 @@ const TechnologyCard = ({ technology }: ItechnologyCard) => {
         </span>
       </div>
 
-      <button className='w-full mt-4 bg-[#0F172A] text-white text-[12px] font-medium py-2 px-4 rounded-lg hover:bg-[#1E293B] transition-colors duration-300 cursor-pointer'>
-        Add to Stack
+      <button
+        className={`w-full mt-4   text-[12px]  py-2 px-4 rounded-lg   transition-colors duration-300 cursor-pointer ${isAdded ? 'bg-[#FEF2F2] text-red-500 font-semibold' : 'bg-[#0F172A] text-white font-semibold'}`}
+        onClick={() => handleAddToStack()}
+      >
+        {isAdded ? '✓ Added to Stack' : 'Add to Stack'}
       </button>
     </div>
   )

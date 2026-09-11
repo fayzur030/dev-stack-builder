@@ -15,7 +15,7 @@ const Navbar = () => {
   const [active, setActive] = useState('Home')
   const [open, setOpen] = useState<boolean>(false)
   return (
-    <div className='border-b border-[#F1F5F9] sticky top-0 z-50'>
+    <div className='border-b border-[#F1F5F9] sticky top-0 z-50 bg-white'>
       {/* Mobile Navbar */}
       <div className='flex items-center justify-between px-4 py-4 md:hidden'>
         <button onClick={() => setOpen(!open)}>
