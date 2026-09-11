@@ -23,7 +23,7 @@ const TechnologyCard = ({
       return
     }
     setAddStack([...addStack, technology])
-    showSuccessToast('Add to stack successfully')
+    showSuccessToast(`${technology.name} added to stack successfully`)
   }
 
   return (

@@ -1,7 +1,7 @@
 import type { Dispatch, SetStateAction } from 'react'
 import type { TechItem } from '../../types/technologies'
 import { RxCross2 } from 'react-icons/rx'
-import { showInfoToast } from '../../utils/toast'
+import { showInfoToast, showWarningTost } from '../../utils/toast'
 
 interface ITechnologyCard {
   addStack: TechItem[]
@@ -17,7 +17,7 @@ const StackCard = ({ addStack, setAddStack }: ITechnologyCard) => {
   }
   const deleteAllStack = () => {
     if (addStack.length === 0) {
-      showInfoToast('Your stack is already empty')
+      showWarningTost('Your stack is already empty')
     } else {
       setAddStack([])
       showInfoToast(`All stacks removed successfully`)
