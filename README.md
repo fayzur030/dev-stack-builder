@@ -1,4 +1,4 @@
-## 🚀 Dev Stack Builder
+# 🚀 Dev Stack Builder
 
 A modern and responsive Dev Stack Builder web application where users can explore different technologies and build their own personalized technology stack.
 
@@ -13,17 +13,17 @@ The application loads technology information from a JSON file and allows users t
 - JSON (for technology data)
 - Vite (build tool)
 
-## ✨ Features
+# ✨ Features
 
-# 1. 🧩 Technology Explorer
+## 1. 🧩 Technology Explorer
 
 Users can explore different technologies with useful information such as name, category, description, difficulty level, rating, badge, and technology icon.
 
-# 2. 🛠️ Build Your Own Stack
+## 2. 🛠️ Build Your Own Stack
 
 Users can add technologies to their personal stack and remove individual technologies or clear the entire stack.
 
-# 3. 🔔 Interactive Feedback
+## 3. 🔔 Interactive Feedback
 
 The application provides toast notifications when a technology is added, removed, duplicated, or when the entire stack is cleared. Duplicate technologies cannot be added twice.
 
