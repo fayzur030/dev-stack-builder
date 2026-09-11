@@ -34,7 +34,7 @@ const TechnologyList = ({ technologies }: ITechnologies) => {
         </div>
 
         {/* Stack Card */}
-        <div className='lg:col-span-3 mt-0 lg:mt-10 '>
+        <div className='lg:col-span-3  '>
           <StackCard addStack={addStack} setAddStack={setAddStack} />
         </div>
       </div>
