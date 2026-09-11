@@ -71,7 +71,9 @@ const TechnologyCard = ({
       </div>
 
       <button
-        className={`w-full mt-4   text-[12px]  py-2 px-4 rounded-lg   transition-colors duration-300 cursor-pointer ${isAdded ? 'bg-[#FEF2F2] text-red-500 font-semibold' : 'bg-[#0F172A] text-white font-semibold'}`}
+        type='button'
+        disabled={isAdded}
+        className={`w-full mt-4   text-[12px]  py-2 px-4 rounded-lg transition-colors duration-300 cursor-pointer ${isAdded ? 'bg-[#FEF2F2] text-red-500 font-semibold disabled:cursor-not-allowed' : 'bg-[#0F172A]   text-white font-semibold'}`}
         onClick={() => handleAddToStack()}
       >
         {isAdded ? '✓ Added to Stack' : 'Add to Stack'}
