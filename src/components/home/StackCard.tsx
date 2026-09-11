@@ -10,8 +10,7 @@ interface ITechnologyCard {
 
 const StackCard = ({ addStack, setAddStack }: ITechnologyCard) => {
   const handelSingleRemoveStack = (id: string) => {
-    const stackName = addStack.find((stack) => stack.name)
-    console.log(stackName)
+    const stackName = addStack.find((stack) => stack.id === id)
     const removeSingleStack = addStack.filter((stack) => stack.id !== id)
     setAddStack(removeSingleStack)
     showInfoToast(`${stackName?.name} removed successfully`)
