@@ -38,7 +38,7 @@ const StackCard = ({ addStack, setAddStack }: ITechnologyCard) => {
 
       {/* Stack Items */}
       {addStack.length === 0 ? (
-        <div className='border border-dashed border-[#E2E8F0] h-16 flex justify-center items-center text-[12px] text-[#94A3B8] rounded-lg'>
+        <div className='border mt-4 border-dashed border-[#E2E8F0] h-16 flex justify-center items-center text-[12px] text-[#94A3B8] rounded-lg'>
           Your stack is empty.
         </div>
       ) : (

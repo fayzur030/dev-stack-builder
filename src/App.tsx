@@ -5,6 +5,7 @@ import Banner from './components/home/Banner'
 import { getTechnologies } from './services/getTechnologies'
 import TechnologyList from './components/home/TechnologyList'
 import Loading from './components/common/Loading'
+import Footer from './components/common/Footer'
 
 function App() {
   const technologies = getTechnologies()
@@ -16,6 +17,7 @@ function App() {
         <Suspense fallback={<Loading />}>
           <TechnologyList technologies={technologies} />
         </Suspense>
+        <Footer />
       </main>
     </>
   )

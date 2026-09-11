@@ -1,6 +1,6 @@
 import type { Dispatch, SetStateAction } from 'react'
 import type { TechItem } from '../../types/technologies'
-import { getBadgeColor } from '../common/BadgeColors'
+import { getBadgeColor } from '../../utils/BadgeColors'
 import { showSuccessToast, showWarningTost } from '../../utils/toast'
 interface ItechnologyCard {
   technology: TechItem
@@ -73,7 +73,7 @@ const TechnologyCard = ({
       <button
         type='button'
         disabled={isAdded}
-        className={`w-full mt-4   text-[12px]  py-2 px-4 rounded-lg transition-colors duration-300 cursor-pointer ${isAdded ? 'bg-[#FEF2F2] text-red-500 font-semibold disabled:cursor-not-allowed' : 'bg-[#0F172A]   text-white font-semibold'}`}
+        className={`w-full mt-4 text-[12px]  py-2 px-4 rounded-lg transition-colors duration-300 cursor-pointer ${isAdded ? 'bg-[#FEF2F2] text-red-500 font-semibold disabled:cursor-not-allowed' : 'bg-[#0F172A]   text-white font-semibold'}`}
         onClick={() => handleAddToStack()}
       >
         {isAdded ? '✓ Added to Stack' : 'Add to Stack'}
