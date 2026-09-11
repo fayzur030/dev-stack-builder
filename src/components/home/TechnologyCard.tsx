@@ -1,7 +1,7 @@
 import type { Dispatch, SetStateAction } from 'react'
 import type { TechItem } from '../../types/technologies'
 import { getBadgeColor } from '../../utils/BadgeColors'
-import { showSuccessToast, showWarningTost } from '../../utils/toast'
+import { showSuccessToast } from '../../utils/toast'
 interface ItechnologyCard {
   technology: TechItem
   addStack: TechItem[]
@@ -15,20 +15,20 @@ const TechnologyCard = ({
   const isAdded = addStack.some((item) => item.id === technology.id)
 
   const handleAddToStack = () => {
-    const isAlreadyAdded = addStack.some((item) => item.id === technology.id)
+    // const isAlreadyAdded = addStack.some((item) => item.id === technology.id)
 
-    if (isAlreadyAdded) {
-      showWarningTost('Already added to stack')
+    // if (isAlreadyAdded) {
+    //   showWarningTost('Already added to stack')
 
-      return
-    }
+    //   return
+    // }
     setAddStack([...addStack, technology])
     showSuccessToast(`${technology.name} added to stack successfully`)
   }
 
   return (
     <div
-      className={` rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 p-4 space-y-3 ${isAdded ? 'border border-[#F29191]' : 'border border-gray-200'}`}
+      className={` rounded-lg shadow-sm transition-shadow duration-300 p-4 space-y-3 ${isAdded ? 'border border-[#F29191]' : 'border border-[#F0F5FA]'}`}
     >
       <div className='flex items-center justify-between'>
         <img
@@ -57,7 +57,7 @@ const TechnologyCard = ({
       </div>
 
       <div className='flex items-center justify-between mt-4'>
-        <span className='text-[11px] text-[#64748B] bg-gray-200 px-2 py-1 rounded-lg font-medium'>
+        <span className='text-[11px] text-[#64748B] bg-gray-100 px-3 py-1 rounded-md font-medium'>
           {technology.category}
         </span>
 

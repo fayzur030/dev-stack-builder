@@ -24,10 +24,10 @@ const StackCard = ({ addStack, setAddStack }: ITechnologyCard) => {
     }
   }
   return (
-    <div className='p-4 md:p-5 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 bg-white sticky top-22'>
+    <div className='p-4 md:p-5 border border-[#F0F5FA] rounded-xl shadow-sm transition-shadow duration-300 bg-white sticky top-22'>
       {/* Header */}
       <div>
-        <h1 className='text-base text-[#0F172A] font-semibold'>Stack Card</h1>
+        <h1 className='text-base text-[#0F172A] font-semibold'>Your Stack</h1>
 
         <p className='text-[12px] text-[#94A3B8] mt-1'>
           {addStack.length === 0
@@ -80,14 +80,16 @@ const StackCard = ({ addStack, setAddStack }: ITechnologyCard) => {
           ))}
         </div>
       )}
-      <div className='flex justify-center items-end mt-5'>
-        <button
-          className='text-[#D82C20] font-semibold px-6 w-full py-2 text-sm rounded-lg border border-[#D82C20] cursor-pointer hover:bg-red-50 transition-all  duration-300'
-          onClick={() => deleteAllStack()}
-        >
-          Remove All
-        </button>
-      </div>
+      {addStack.length > 0 && (
+        <div className='flex justify-center items-end mt-5'>
+          <button
+            className='text-[#D82C20] font-semibold px-6 w-full py-2 text-sm rounded-lg border border-[#D82C20] cursor-pointer hover:bg-red-50 transition-all  duration-300'
+            onClick={() => deleteAllStack()}
+          >
+            Remove All
+          </button>
+        </div>
+      )}
     </div>
   )
 }

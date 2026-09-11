@@ -12,8 +12,8 @@ const footerLinks = [
   {
     title: 'COMPANY',
     links: [
-      { name: 'About Us', path: '/about' },
-      { name: 'Contact Us', path: '/contact' },
+      { name: 'About ', path: '/about' },
+      { name: 'Contact', path: '/contact' },
       { name: 'Careers', path: '/careers' },
     ],
   },
@@ -33,7 +33,7 @@ const Footer = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 py-14 md:py-16'>
           {/* Logo & Description */}
           <div className='space-y-5'>
-            <img src={footerLogo} alt='Dev Stack' className='h-7 w-auto' />
+            <img src={footerLogo} alt='Dev Stack' />
 
             <p className='text-[#64748B] text-sm leading-6 max-w-md'>
               Curated tools, technologies, and resources for developers building
@@ -97,22 +97,22 @@ const Footer = () => {
         </div>
 
         {/* Bottom Footer */}
-        <div className='border-t border-[#E2E8F0] py-6 flex flex-col sm:flex-row justify-between items-center gap-4'>
-          <p className='text-xs text-[#64748B]'>
+        <div className='border-t border-[#F1F5F9] py-6 flex flex-col sm:flex-row justify-between items-center gap-4'>
+          <p className='text-xs text-[#94A3B8]'>
             © 2026 Dev Stack. All rights reserved.
           </p>
 
           <div className='flex items-center gap-6'>
             <a
               href='/privacy-policy'
-              className='text-xs text-[#64748B] transition-colors duration-200 hover:text-[#0F172A]'
+              className='text-xs text-[#94A3B8] transition-colors duration-200 hover:text-[#0F172A]'
             >
               Privacy
             </a>
 
             <a
               href='/terms-of-service'
-              className='text-xs text-[#64748B] transition-colors duration-200 hover:text-[#0F172A]'
+              className='text-xs text-[#94A3B8] transition-colors duration-200 hover:text-[#0F172A]'
             >
               Terms
             </a>

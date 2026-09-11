@@ -14,7 +14,7 @@ const Banner = () => {
           <br className='hidden md:block' /> compare them side by side, and put
           together the stack that fits your next project.
         </p>
-        <div className='flex items-center gap-5 justify-center md:justify-start'>
+        <div className='flex items-center gap-5 justify-center lg:justify-start'>
           <button className='bg-gradient-to-r from-[#f97316] to-[#ec4899] text-white transition-all duration-300  hover:opacity-90 px-6 py-2.5 rounded-lg cursor-pointer text-sm font-semibold'>
             Explore Technologies
           </button>

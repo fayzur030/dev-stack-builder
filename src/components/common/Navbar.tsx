@@ -15,7 +15,7 @@ const Navbar = () => {
   const [active, setActive] = useState('Home')
   const [open, setOpen] = useState<boolean>(false)
   return (
-    <div className='border-b border-[#F1F5F9] sticky top-0 z-50 bg-white'>
+    <div className='border-b border-[#F1F5F9] sticky top-0 z-50 bg-white md:px-4 lg:px-0'>
       {/* Mobile Navbar */}
       <div className='flex items-center justify-between px-4 py-4 md:hidden'>
         <button onClick={() => setOpen(!open)}>
@@ -50,7 +50,7 @@ const Navbar = () => {
       <nav className='max-w-7xl mx-auto md:flex justify-between items-center py-5 hidden'>
         <img src={logo} alt='Dev Stack' className='' />
 
-        <ul className='flex items-center gap-8 k'>
+        <ul className='flex items-center md:gap-4 lg:gap-8 k'>
           {navLinks.map((item) => (
             <li
               key={item.name}
@@ -62,7 +62,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div className='flex gap-5 items-center'>
+        <div className='flex gap-5 items-center md:justify-center'>
           <button className='text-sm font-semibold cursor-pointer text-[#475569]'>
             Sign In
           </button>
