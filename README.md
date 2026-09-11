@@ -39,18 +39,18 @@ ii) What is the difference between props and state?
 
 - Answer: Props are data passed from parent component to a child component. They are read only from child-side.
   state is data managed inside a component that can change over time.
-  Props is immutable, meaning a child component cannot be change but state is mutable and can be updated
+  Props is immutable, meaning a child component cannot be change but state is mutable and can be change and update.
 
 iii) What does the useState hook do, and where did you use it in this project?
 
 - Answer:
-  The useState hook is a function that allows add and manage state variable inside functional component. It has two values, first is initial value and second is setter function. When the state changes, react update UI
+  The useState hook is a function that allows add and manage state variable inside functional component. It has two values, first is initial value and second is setter function. When the state changes, react update UI.
 
 iv) What does the useEffect hook do, and why did you need it to load the JSON data?
 
-- Answer : The useEffect hook is a built-in React hook. The useEffect hook in React is used to run side effects, such as fetching data from an API, after React has rendered the component and updated the DOM.
+- Answer : The useEffect hook is a built-in React hook. The useEffect hook in React is used to run side effects, such as fetching data from an API, after React has rendered the component and updated the DOM. It can be handel dependency.
 
-I used useEffect to load the technology data from the JSON file when the page loads
+I used useEffect to load the technology data from the JSON file when the page loads.
 
 v) Why does every item in a .map() list need a unique key prop?
 
@@ -67,4 +67,4 @@ vi) What is conditional rendering? Show one place you used it (example: the empt
 
 v) How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
 
-- Answer: A parent component pass data to a child component using props. Using Lifting State Up a child can send data to the parent by using a function from the parent. This is called Lifting State Up
+- Answer: A parent component pass data to a child component using props. Using Lifting State Up a child can send data to the parent by using a function from the parent. This is called Lifting State Up.
