@@ -1,7 +1,7 @@
 import type { Dispatch, SetStateAction } from 'react'
 import type { TechItem } from '../../types/technologies'
 import { getBadgeColor } from '../common/BadgeColors'
-import { showSuccessToast } from '../../utils/toast'
+import { showSuccessToast, showWarningTost } from '../../utils/toast'
 interface ItechnologyCard {
   technology: TechItem
   addStack: TechItem[]
@@ -18,7 +18,7 @@ const TechnologyCard = ({
     const isAlreadyAdded = addStack.some((item) => item.id === technology.id)
 
     if (isAlreadyAdded) {
-      showSuccessToast('Already added to stack')
+      showWarningTost('Already added to stack')
 
       return
     }

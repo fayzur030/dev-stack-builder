@@ -27,3 +27,6 @@ export const showSuccessToast = (message: string) => {
 export const showInfoToast = (message: string) => {
   toast.success(message, toastConfig)
 }
+export const showWarningTost = (message: string) => {
+  toast.warning(message, toastConfig)
+}

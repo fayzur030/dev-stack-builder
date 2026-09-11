@@ -1,7 +1,6 @@
 import type { Dispatch, SetStateAction } from 'react'
 import type { TechItem } from '../../types/technologies'
 import { RxCross2 } from 'react-icons/rx'
-import { toast } from 'react-toastify'
 import { showInfoToast } from '../../utils/toast'
 
 interface ITechnologyCard {
@@ -14,16 +13,7 @@ const StackCard = ({ addStack, setAddStack }: ITechnologyCard) => {
     const findStackName = addStack.find((stack) => stack.name)
     const removeSingleStack = addStack.filter((stack) => stack.id !== id)
     setAddStack(removeSingleStack)
-    toast.info(`${findStackName?.name} removed successfully`, {
-      position: 'bottom-right',
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: 'light',
-    })
+    showInfoToast(`${findStackName?.name} removed successfully`)
   }
   const deleteAllStack = () => {
     if (addStack.length === 0) {
@@ -74,10 +64,10 @@ const StackCard = ({ addStack, setAddStack }: ITechnologyCard) => {
             {/* Remove Icon */}
             <button
               type='button'
-              className='w-7 h-7 flex items-center justify-center rounded-md text-[#94A3B8] hover:text-red-500 hover:bg-red-50 transition-all duration-200 cursor-pointer'
+              className=' flex items-center justify-center rounded-md text-[#94A3B8] hover:text-red-500 hover:bg-red-50 transition-all duration-200 cursor-pointer'
               onClick={() => handelSingleRemoveStack(stack.id)}
             >
-              <RxCross2 size={17} />
+              <RxCross2 size={22} />
             </button>
           </div>
         ))}
