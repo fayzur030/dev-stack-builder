@@ -1,76 +1,70 @@
-# React + TypeScript + Vite
+## 🚀 Dev Stack Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive Dev Stack Builder web application where users can explore different technologies and build their own personalized technology stack.
 
-Currently, two official plugins are available:
+The application loads technology information from a JSON file and allows users to add or remove technologies from their stack with interactive feedback.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ Technologies Used
 
-## React Compiler
+- React.js
+- TypeScript
+- Tailwind CSS
+- React-Toastify (NPM Package)
+- JSON (for technology data)
+- Vite (build tool)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+# 1. 🧩 Technology Explorer
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Users can explore different technologies with useful information such as name, category, description, difficulty level, rating, badge, and technology icon.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# 2. 🛠️ Build Your Own Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Users can add technologies to their personal stack and remove individual technologies or clear the entire stack.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# 3. 🔔 Interactive Feedback
 
-```
+The application provides toast notifications when a technology is added, removed, duplicated, or when the entire stack is cleared. Duplicate technologies cannot be added twice.
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚛️ React Questions & Answers
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+i) What is JSX, and why is it used in React?
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Answer: JSX stands for JavaScript XML. It is a syntax that allows us to write HTML-like code inside JavaScript or TypeScript.
 
-```
-# dev-stack-builder
+It makes React components easier to read and write because we can describe the UI directly inside our component logic.
+
+ii) What is the difference between props and state?
+
+- Answer: Props are data passed from parent component to a child component. They are read only from child-side.
+  state is data managed inside a component that can change over time.
+  Props is immutable, meaning a child component cannot be change but state is mutable and can be updated
+
+iii) What does the useState hook do, and where did you use it in this project?
+
+- Answer:
+  The useState hook is a function that allows add and manage state variable inside functional component. It has two values, first is initial value and second is setter function. When the state changes, react update UI
+
+iv) What does the useEffect hook do, and why did you need it to load the JSON data?
+
+- Answer : The useEffect hook is a built-in React hook. The useEffect hook in React is used to run side effects, such as fetching data from an API, after React has rendered the component and updated the DOM.
+
+I used useEffect to load the technology data from the JSON file when the page loads
+
+v) Why does every item in a .map() list need a unique key prop?
+
+- Answer: React needs a unique key for identify to each item in a list. It helps react understand which item is changed , which items has been added and which item been remove. It can update the UI efficiently.
+
+vi) What is conditional rendering? Show one place you used it (example: the empty stack message).
+
+- Answer: Conditional rendering means showing different UI based on a condition. In this project it is used in many places. Like-
+  {addStack.length === 0
+  ? `No technologies selected yet.`
+  : `${addStack.length} Technology Selected`}
+
+  so, when addStack's value is 0 then 'No technologies selected yet.' message is displayed and otherwise length show in display.
+
+v) How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
+
+- Answer: A parent component pass data to a child component using props. Using Lifting State Up a child can send data to the parent by using a function from the parent. This is called Lifting State Up
