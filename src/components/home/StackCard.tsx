@@ -1,6 +1,7 @@
 import type { Dispatch, SetStateAction } from 'react'
 import type { TechItem } from '../../types/technologies'
 import { RxCross2 } from 'react-icons/rx'
+import { toast } from 'react-toastify'
 
 interface ITechnologyCard {
   addStack: TechItem[]
@@ -8,8 +9,34 @@ interface ITechnologyCard {
 }
 
 const StackCard = ({ addStack, setAddStack }: ITechnologyCard) => {
-  console.log(addStack)
-
+  const handelSingleRemoveStack = (id: string) => {
+    const findStackName = addStack.find((stack) => stack.name)
+    const removeSingleStack = addStack.filter((stack) => stack.id !== id)
+    setAddStack(removeSingleStack)
+    toast.info(`${findStackName?.name} deleted successfully`, {
+      position: 'bottom-right',
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light',
+    })
+  }
+  const deleteAllStack = () => {
+    setAddStack([])
+    toast.info(`Delete All Stack successfully`, {
+      position: 'bottom-right',
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light',
+    })
+  }
   return (
     <div className='p-4 md:p-5 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 bg-white sticky top-22'>
       {/* Header */}
@@ -52,6 +79,7 @@ const StackCard = ({ addStack, setAddStack }: ITechnologyCard) => {
             <button
               type='button'
               className='w-7 h-7 flex items-center justify-center rounded-md text-[#94A3B8] hover:text-red-500 hover:bg-red-50 transition-all duration-200 cursor-pointer'
+              onClick={() => handelSingleRemoveStack(stack.id)}
             >
               <RxCross2 size={17} />
             </button>
@@ -59,7 +87,10 @@ const StackCard = ({ addStack, setAddStack }: ITechnologyCard) => {
         ))}
       </div>
       <div className='flex justify-center items-end'>
-        <button className='text-[#D82C20] font-semibold px-6 w-full py-2 text-sm rounded-lg border border-[#D82C20] cursor-pointer hover:bg-red-50 transition-all  duration-300'>
+        <button
+          className='text-[#D82C20] font-semibold px-6 w-full py-2 text-sm rounded-lg border border-[#D82C20] cursor-pointer hover:bg-red-50 transition-all  duration-300'
+          onClick={() => deleteAllStack()}
+        >
           Remove All
         </button>
       </div>
